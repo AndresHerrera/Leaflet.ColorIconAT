@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Icon Markers - Leaflet.ColorIcon Fork for Actiontracker</title>
+  <meta charset="utf-8" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   
+</head>
+<body>
+  <div id="map" style="width: 800px; height: 600px"></div>
+  
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  <script src="dist/L.colorIcon.js"></script>
+  
+  <script>
+    var map = L.map('map').setView([47.1299, 4.4000], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+	}).addTo(map);
+	
+	
+	
+	let iconBomberos = L.colorIcon({
+      iconSize : [35, 35],
+      popupAnchor : [-16, -30],
+      iconUrl: "img/bomberos.svg",
+	  shadowUrl:"img/marker-shadow.png",
+	  shadowSize: [51, 51],
+	  shadowAnchor: [-16, -33],
+      color: "#FF00FF",
+    });
+	
+	
+	let iconCasco = L.colorIcon({
+      iconSize : [25, 25],
+      popupAnchor : [-15, -20],
+      iconUrl: "img/casco_negro.svg",
+	  shadowUrl:"img/marker-shadow.png",
+	  alertIconUrl: "img/alert_1.gif",
+	  iconSize : [25, 25],
+	  shadowSize: [41, 41],
+	  shadowAnchor: [-13,-29],
+      color: "#FF0000",
+    });
+	
+	
+	let iconAvion = L.colorIcon({
+      iconSize : [25, 25],
+      popupAnchor : [-15, -20],
+      iconUrl: "img/avion.svg",
+	  shadowUrl:"img/marker-shadow.png",
+	  alertIconUrl: "img/alert_2.gif",
+	  iconSize : [25, 25],
+	  shadowSize: [41, 41],
+	  shadowAnchor: [-13,-29],
+      color: "#4169E1",
+    });
+	
+	
+	L.marker([48.3708, 4.8120], {icon: iconBomberos}).addTo(map).bindPopup("Pincho bomberos 1");
+	
+	L.marker([50.3708, 3.8120], {icon: iconCasco}).addTo(map).bindPopup("Pincho Casco 1");
+	
+	L.marker([46.3708, 3.8120], {icon: iconAvion}).addTo(map).bindPopup("Pincho Avion 1");
+	
+
+
+ </script>
+</body>
+</html>
